@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={styles.text}>Hello There, this is my first page for learning react native!</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -17,5 +17,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  },text:{
+     fontWeight:"bold",
+     fontFamily:"Lato",
+     color:"red",
+     fontFamily:"sans-serif",
+     position:"absolute",
+     top:"200px",
+     fontSize:"40px"
+     
+  }
+
 });

@@ -1,60 +1,74 @@
 import { StatusBar } from 'expo-status-bar';
-
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, FlatList,Platform,View, Text, StyleSheet } from 'react-native';
 import axios from 'axios'
 import React,{useEffect} from 'react'
 import data from './src/data'
 import {Image}   from 'react-native'
+import { Content } from 'native-base'
+
 
 export default function App() {
 
 
 
-
-
-
-const movies=()=>{
-       
-       console.log(data)
-
-      return  data.movie.map((movie)=>
-         {
-         return   <div>
-         
-           <img src={movie.url} style={{width:"200px",height:"200px"}} />
-            <h2>{movie.name}</h2>
-           </div>
-         }
-       )
-
-
-}
-
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello There, this is my first page for learning react native!</Text>
-      <StatusBar style="auto" />
-      {movies()}
-    </View>
+   
+       <FlatList 
+       data={data}
+       keyExtractor={(item,index)=>index}
+       renderItem={({item,index})=>(
+        
+           <View style={styles.container}> 
+           {item.movie.map((movie)=>(
+                <View style={styles.box}>
+                  <img src={movie.url} style={{width:"250px",height:"150px"}} />
+                  <h4>{movie.name}</h4>
+                 </View>
+            ) )}
+            </View>
+         
+       )}
+  
+      />
+
   );
-}
+} 
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+   flex:1,
+   flexDirection:'row',
+   flexWrap:'wrap',
+    backgroundColor: 'red',
+    alignItems: 'flex-start',
+    margin:30,
+    ...Platform.select({
+      ios: { paddingTop: 20 },
+      android: { paddingTop: StatusBar.currentHeight }
+    })
+   
   },text:{
      fontWeight:"bold",
-     fontFamily:"Lato",
      color:"red",
      fontFamily:"sans-serif",
      position:"absolute",
      top:"200px",
      fontSize:"40px"
-     
+  },
+  box:{
+   
+    alignItems:"center",
+    borderWidth:1,
+    margin:10,
+    border: '1px solid rgba(0, 0, 0, 0.8)',
+    textAlign: 'center',
+    boxShadow: '5px 5px 30px rgba(0,0,0,0.9)',
+    borderRadius: '18px',
+    padding:'2em',
+    backgroundColor:'green',
+
   }
 
+
+  
 });

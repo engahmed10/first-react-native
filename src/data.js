@@ -1,4 +1,4 @@
-const data={
+const data=[{
   movie: [{name:"1917",
     url:require('../images/1.jpeg')}, 
     {name:"CAGED",
@@ -12,6 +12,6 @@ const data={
    {name:"WRONG TURN",
    url:require("../images/moviephotos:MV5BM2Y5ZWE2MTMtODE3ZC00NWQ4LWJkNzctNGY4Njg5NDY5MzNlXkEyXkFqcGdeQXVyNjUxMjc1OTM@._V1_.jpg")}
    ]
-}
+}]
 
 export default data

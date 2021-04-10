@@ -1,15 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, FlatList,Platform,View, Text, StyleSheet } from 'react-native';
-import axios from 'axios'
-import React,{useEffect} from 'react'
 import data from './src/data'
 import {Image}   from 'react-native'
 import { Content } from 'native-base'
-
+import MovieCard  from './src/components/movieCard'
+import React from 'react';
 
 export default function App() {
-
-
 
   return (
    
@@ -19,11 +16,10 @@ export default function App() {
        renderItem={({item,index})=>(
         
            <View style={styles.container}> 
-           {item.movie.map((movie)=>(
-                <View style={styles.box}>
-                  <img src={movie.url} style={{width:"250px",height:"150px"}} />
-                  <h4>{movie.name}</h4>
-                 </View>
+           {item.movie.map((movie)=>(             
+             <View>
+             <MovieCard  movie={movie}   style={styles} />
+             </View>
             ) )}
             </View>
          
@@ -49,19 +45,18 @@ const styles = StyleSheet.create({
    
   },text:{
      fontWeight:"bold",
-     color:"red",
+     color:"black",
      fontFamily:"sans-serif",
-     position:"absolute",
-     top:"200px",
-     fontSize:"40px"
+     fontSize:"20px",
+     alignItems:"center",
   },
   box:{
    
-    alignItems:"center",
+  
     borderWidth:1,
     margin:10,
     border: '1px solid rgba(0, 0, 0, 0.8)',
-    textAlign: 'center',
+
     boxShadow: '5px 5px 30px rgba(0,0,0,0.9)',
     borderRadius: '18px',
     padding:'2em',

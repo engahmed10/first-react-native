@@ -2,9 +2,7 @@ import  React,{Component} from 'react'
 import MovieList from './src/components/movieList'
 import About from './src/components/about'
 import Contact from './src/components/contact'
-
 import { SafeAreaView, StyleSheet, View, Text, StatusBar } from "react-native"
-
 import {AppRegistry} from 'react-native' 
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
@@ -41,7 +39,6 @@ const Stack =createStackNavigator();
                        options={{headerLargeTitle: true}}
                      
                      />
-
                      </Stack.Navigator >
         </NavigationContainer>
      );

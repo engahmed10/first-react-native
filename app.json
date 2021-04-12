@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "first-react-native",
-    "slug": "first-react-native",
+    "name": "native-test",
+    "slug": "native-test",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,15 +17,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.android.Camera"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.android.Camera"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

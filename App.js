@@ -1,70 +1,52 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, FlatList,Platform,View, Text, StyleSheet } from 'react-native';
-import data from './src/data'
-import {Image}   from 'react-native'
-import { Content } from 'native-base'
-import MovieCard  from './src/components/movieCard'
-import React from 'react';
-import {AppRegistry} from 'react-native'
+import  React,{Component} from 'react'
+import MovieList from './src/components/movieList'
+import About from './src/components/about'
+import Contact from './src/components/contact'
 
-export default function App() {
+import { SafeAreaView, StyleSheet, View, Text, StatusBar } from "react-native"
 
-  return (
-   
-       <FlatList 
-       data={data}
-       keyExtractor={(item,index)=>index}
-       renderItem={({item,index})=>(
-        
-           <View style={styles.container}> 
-           {item.movie.map((movie)=>(             
-             <View>
-             <MovieCard  movie={movie}   style={styles} />
-             </View>
-            ) )}
-            </View>
-         
-       )}
-  
-      />
+import {AppRegistry} from 'react-native' 
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Screen } from 'react-native-screens'
+import { enableScreens } from 'react-native-screens';
 
-  );
-} 
-
-const styles = StyleSheet.create({
-  container: {
-   flex:1,
-   flexDirection:'row',
-   flexWrap:'wrap',
-    backgroundColor: 'red',
-    alignItems: 'flex-start',
-    margin:30,
-    ...Platform.select({
-      ios: { paddingTop: 20 },
-      android: { paddingTop: StatusBar.currentHeight }
-    })
-   
-  },text:{
-     fontWeight:"bold",
-     color:"black",
-     fontFamily:"sans-serif",
-     fontSize:"20px",
-     alignItems:"center",
-  },
-  box:{
-  
-    borderWidth:1,
-    margin:10,
-    border: '1px solid rgba(0, 0, 0, 0.8)',
-
-    boxShadow: '5px 5px 30px rgba(0,0,0,0.9)',
-    borderRadius: '18px',
-    padding:'2em',
-    backgroundColor:'green',
-
-  }
+enableScreens(false);
 
 
-  
-});
-//AppRegistry.registerComponent('App',()=>App);
+const Stack =createStackNavigator();
+ class  App extends Component{
+
+ render() {
+     return (
+
+        <NavigationContainer>
+
+            <Stack.Navigator initialRouteName="Home"
+      screenOptions={{
+        headerShown: true,
+        headerTintColor: 'white',
+        headerStyle: { backgroundColor: 'tomato' },
+      }} >
+             <Stack.Screen name="MovieList" component={MovieList}
+                  options={{
+                         title: 'My MovieList',
+                          }}
+             />  
+            <Stack.Screen name="Contact" component={Contact} 
+                           options={{headerLargeTitle: true}}
+               /> 
+                     <Stack.Screen  name="About" component={About} 
+                       options={{headerLargeTitle: true}}
+                     
+                     />
+
+                     </Stack.Navigator >
+        </NavigationContainer>
+     );
+ }    
+ }
+export default App
+
+AppRegistry.registerComponent('App',()=>App);

@@ -4,9 +4,9 @@ import { SafeAreaView, FlatList,Platform,View, Text, StyleSheet } from 'react-na
 export default function Contact(){
 
 
-   return <View>
-        This is Contact Page
-        </View>
+   return <Text>
+              This is Contact Page
+        </Text>
 
 }
 

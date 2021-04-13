@@ -1,15 +1,15 @@
 import React from 'react';
-import { SafeAreaView, FlatList,Platform,View, Text, StyleSheet } from 'react-native';
+import { Image,SafeAreaView, FlatList,Platform,View, Text, StyleSheet } from 'react-native';
 
 const MovieCard = (props) => {
 
     console.log(props)
     return  <View>
                 <View style={props.style.box}>
-                  <img src={props.movie.url} style={{width:"250px",height:"150px"}} />
+                  <Image source={props.movie.url}  style={{width:200,height:200}}/>
                 </View>
                  <View style={props.style.text}>
-                  <h4  >{props.movie.name}</h4>
+                   <Text>{props.movie.name}</Text> 
                  </View>
              </View>
 };

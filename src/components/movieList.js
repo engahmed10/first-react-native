@@ -25,7 +25,6 @@ export default function MovieList({navigation}) {
             </View>
        )}
       />
-  
 </>
   );
 } 
@@ -35,9 +34,10 @@ const styles = StyleSheet.create({
    flex:1,
    flexDirection:'row',
    flexWrap:'wrap',
-    backgroundColor: 'red',
+    backgroundColor: 'white',
     alignItems: 'flex-start',
-    margin:30,
+     borderRadius: 18,
+    margin:40,
     ...Platform.select({
       ios: { paddingTop: 20 },
       android: { paddingTop: StatusBar.currentHeight }
@@ -47,18 +47,22 @@ const styles = StyleSheet.create({
      fontWeight:"bold",
      color:"black",
      fontFamily:"sans-serif",
-     fontSize:"20px",
+     fontSize:20,
      alignItems:"center",
   },
   box:{
-   
   
     borderWidth:1,
-    margin:10,
-    border: '1px solid rgba(0, 0, 0, 0.8)',
-    boxShadow: '5px 5px 30px rgba(0,0,0,0.9)',
-    borderRadius: '18px',
-    padding:'2em',
+    margin:15,
+    borderWidth: 1,
+    borderStyle:'solid',
+    borderColor: 'rgba(0, 0, 0, 0.8)',
+    borderWidth: 5,
+    borderWidth: 5,
+    borderWidth: 30,
+    borderColor: 'rgba(0, 0, 0, 0.9)',
+    borderRadius: 18,
+    padding:20,
     backgroundColor:'green',
 
   }  
